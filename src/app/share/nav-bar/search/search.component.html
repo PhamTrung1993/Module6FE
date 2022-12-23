@@ -1,0 +1,89 @@
+<div style="width:800px; height: 600px">
+  <h2 mat-dialog-title>Tìm kiếm nâng cao</h2>
+  <div mat-dialog-content></div>
+  <div>
+      <div>
+        <form [formGroup]="formSearch">
+          <div class="row" style="margin-left: 20px">
+            <div class="col-md-10 mb-2">
+              <div class="form-group">
+                <label>Địa chỉ</label>
+                <input formControlName="address" type="text" class="form-control form-control-lg form-control-a" placeholder="Địa chỉ phòng trọ">
+              </div>
+            </div>
+            <div class="col-md-5 mb-2">
+              <div class="form-group">
+                <label>Ngày bắt đầu thuê</label>
+                <input formControlName="startTime" type="date" class="form-control form-control-lg form-control-a" >
+              </div>
+            </div>
+            <div class="col-md-5 mb-2">
+              <div class="form-group">
+                <label>Ngày kết thúc thuê</label>
+                <input formControlName="endTime" type="date" class="form-control form-control-lg form-control-a">
+              </div>
+            </div>
+            <div class="col-md-5 mb-2">
+              <div class="form-group">
+                <label>Phòng Ngủ</label>
+                <select formControlName="bedrooms" class="form-control form-control-lg form-control-a" >
+                  <option value="1" >1 Phòng</option>
+                  <option value="2" > 2 Phòng</option>
+                  <option value="3" > 3 Phòng</option>
+                  <option value="4" > 4 Phòng</option>
+                  <option value="5" > 5 Phòng</option>
+                  <option value="6" > 6 Phòng</option>
+                  <option value="7" > 7 Phòng</option>
+                  <option value="8" > 8 Phòng</option>
+                  <option value="9" > 9 Phòng</option>
+                  <option value="10"> 10 Phòng</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-5 mb-2">
+              <div class="form-group">
+                <label>Phòng tắm</label>
+                <select formControlName="bathrooms" class="form-control form-control-lg form-control-a" >
+                  <option value="1"> 1 Phòng</option>
+                  <option value="2"> 2 Phòng</option>
+                  <option value="3"> 3 Phòng</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 mb-2">
+              <div class="form-group">
+                <label for="rent">Giá</label>
+                <select formControlName="rent" class="form-control form-control-lg form-control-a" id="rent">
+                  <option value="1">Dưới 1 triệu</option>
+                  <option value="2">1 triệu - 2 triệu</option>
+                  <option value="3">Trên 2 triệu</option>
+                </select>
+              </div>
+            </div>
+            <div  >
+        <span style="margin-left: 250px">
+          <button
+            style="width: 100px"
+            class="btn btn-info"
+            type="button"
+            [mat-dialog-close]="true"
+            (click)="searchAll()"
+          >
+            Tìm kiếm
+          </button>
+          <button
+            style="width: 100px"
+            class="btn btn-danger"
+            type="button"
+
+            (click)="CloseDialog()"
+          >
+            Hủy
+          </button>
+        </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>

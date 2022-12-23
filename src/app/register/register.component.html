@@ -1,0 +1,92 @@
+
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-pic js-tilt" data-tilt style="width: 350px; height: 500px">
+
+        <img src="../../../assets/img/logoliginn.gif" style="width: 350px; height: 500px">
+      </div>
+      <form>
+      <form class="login100-form validate-form" [formGroup]="signupForm" (ngSubmit)="signUp()">
+        <span class="login100-form-title">
+            ĐĂNG KÝ
+        </span>
+        <div class="wrap-input100 validate-input">
+          <div class="mb-3">
+            <label class="form-label">Tên tài khoản
+          <input class="input100" type="text" name="email" id="formGroupExampleInput" formControlName="userName" placeholder="Tên đăng nhập" >
+              <div *ngIf="signupForm.get('userName')?.invalid && signupForm.get('userName')?.touched">
+                <p class ="text-danger">Tên đăng nhập không để trống</p>
+              </div></label>
+            </div>
+        </div>
+
+          <div class="wrap-input100 validate-input" data-validate = "Password is required">
+            <label class="form-label">Mật khẩu
+            <input class="input100" type="password" name="pass" formControlName="password" placeholder="Mật khẩu"></label>
+            <div *ngIf="!signupForm.get('password')?.valid && (signupForm.get('password')?.dirty ||signupForm.get('password')?.touched)">
+              <div [hidden]="!signupForm.get('password')?.errors?.['required']">
+                <p class="text-danger">Mật khẩu không để trống </p>
+              </div>
+              <div [hidden]="!signupForm.get('password')?.errors?.['minlength']">
+                  <p class="text-danger">Mật khẩu từ 6-8 ký tự</p>
+              </div>
+                <div [hidden]="!signupForm.get('password')?.errors?.['maxlength']">
+                  <p class="text-danger">Mật khẩu từ 6-8 ký tự</p>
+                </div>
+            </div>
+          </div>
+          <div class="wrap-input100 validate-input" data-validate = "Password is required">
+            <label class="form-label">Nhập lại mật khẩu
+            <input class="input100" type="password" formControlName="confirmPassword" name="pass" placeholder="Nhập lại mật khẩu"></label>
+              <div *ngIf="!signupForm.get('confirmPassword')?.valid && (signupForm.get('confirmPassword')?.dirty ||signupForm.get('confirmPassword')?.touched)">
+                <div [hidden]="!signupForm.get('confirmPassword')?.errors?.['required']">
+                  <p class="text-danger">Mật khẩu không để trống </p>
+                </div>
+              </div>
+              <div *ngIf="!signupForm.get('confirmPassword')?.touched || (signupForm.get('confirmPassword')?.dirty)">
+                <div [hidden]="!signupForm.errors?.['notSame']">
+                  <p class="text-danger">Mật khẩu không trùng khớp </p>
+                </div>
+              </div>
+          </div>
+        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+
+          <label class="form-label"> Email:
+            <input class="input100" formControlName="email" type="phone" name="email" placeholder="Email"></label>
+          <div *ngIf="!signupForm.get('email')?.valid && (signupForm.get('email')?.dirty ||signupForm.get('email')?.touched)">
+            <div [hidden]="!signupForm.get('email')?.errors?.['required']">
+              <p class="text-danger">Email không để trống</p>
+            </div>
+            <div [hidden]="!signupForm.get('email')?.errors?.['pattern']">
+              <p class="text-danger">Email không đúng định dạng</p>
+            </div>
+          </div>
+        </div>
+          <div class="wrap-input100 validate-input" data-validate = "Valid phone is required: 09********">
+            <label class="form-label"> Số điện thoại :
+            <input class="input100" formControlName="phone" type="phone" name="phone" placeholder="Số điện thoại"></label>
+            <div *ngIf="!signupForm.get('phone')?.valid && (signupForm.get('phone')?.dirty ||signupForm.get('phone')?.touched)">
+              <div [hidden]="!signupForm.get('phone')?.errors?.['required']">
+                <p class="text-danger">Số điện thoại không để trống</p>
+              </div>
+              <div [hidden]="!signupForm.get('phone')?.errors?.['pattern']">
+                <p class="text-danger">Số điện thoại không đúng định dạng</p>
+              </div>
+            </div>
+          </div>
+          <div class="container-login100-form-btn">
+            <div id="signup">
+              <button type="submit" class="btn btn-primary" style="width: 300px; font-size: 15px;"[disabled]="signupForm.invalid"> Đăng ký </button>
+            </div>
+          </div>
+        </form>
+        <div class="text-center">
+          <a class="txt2" routerLink="">
+            Quay lại đăng nhập
+          </a>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>

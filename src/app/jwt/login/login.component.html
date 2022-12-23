@@ -1,0 +1,64 @@
+﻿
+
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-pic js-tilt" data-tilt style="width: 450px; height: 400px">
+
+          <img src="../../../assets/img/logoliginn.gif" style="width: 450px; height: 400px">
+      </div>
+
+      <form class="validate-form" [formGroup]="loginForm" (ngSubmit)="login()">
+					<span class="login100-form-title">
+						ĐĂNG NHẬP
+					</span>
+
+          <div class="wrap-input100 validate-input">
+              <div class="mb-3">
+                  <label class="form-label">Tên tài khoản
+                      <input class="input100" type="text" name="email" id="formGroupExampleInput" formControlName="username" placeholder="Tên đăng nhập" >
+                      <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+                          <p class ="text-danger">Tên đăng nhập không để trống</p>
+                      </div></label>
+              </div>
+          </div>
+
+<!--        <div class="wrap-input100 validate-input">-->
+<!--          <input class="input100" type="text" formControlName="username" placeholder="Tên đăng nhập">-->
+<!--          <span class="focus-input100"></span>-->
+<!--          <span class="symbol-input100">-->
+<!--							<i class="fa fa-user" aria-hidden="true"></i>-->
+<!--						</span>-->
+<!--        </div>-->
+
+          <div class="wrap-input100 validate-input" data-validate = "Password is required">
+              <label class="form-label">Mật khẩu
+                  <input class="input100" type="password" name="pass" formControlName="password" placeholder="Mật khẩu"></label>
+              <div *ngIf="!loginForm.get('password')?.valid && (loginForm.get('password')?.dirty ||loginForm.get('password')?.touched)">
+                  <div [hidden]="!loginForm.get('password')?.errors?.['required']">
+                      <p class="text-danger">Mật khẩu không để trống </p>
+                  </div>
+                  <div [hidden]="!loginForm.get('password')?.errors?.['minlength']">
+                      <p class="text-danger">Mật khẩu từ 6-8 ký tự</p>
+                  </div>
+                  <div [hidden]="!loginForm.get('password')?.errors?.['maxlength']">
+                      <p class="text-danger">Mật khẩu từ 6-8 ký tự</p>
+                  </div>
+              </div>
+          </div>
+
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn">
+            Đăng nhập
+          </button>
+        </div>
+        <div class="text-center">
+          <a class="txt2" routerLink="/register">
+            Đăng ký tài khoản!
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

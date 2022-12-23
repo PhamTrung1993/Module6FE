@@ -1,0 +1,136 @@
+<app-nav-bar></app-nav-bar>
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">Tạo nhà thuê mới</h1>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container-fluid py-5">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="contact-form bg-light rounded p-5">
+            <form name="sentMessage" id="contactForm" novalidate="novalidate" [formGroup]="houseForm"
+                  (submit)="submit()">
+              <div class="form-row">
+                <div class="col-sm-6 control-group">
+                  <div style="color: black; font-size: 18px">Tên ngôi nhà:</div>
+                  <input type="text" class="form-control p-4" id="houseName" name="houseName"
+                         formControlName="houseName"
+                         placeholder="Tên ngôi nhà" required="required"
+                         data-validation-required-message="Xin hãy nhập tên nhà"/>
+                  <div *ngIf="houseName?.invalid &&  houseName?.touched">
+                    <div *ngIf="houseName?.errors?.['required']">
+                      <p class="help-block text-danger">Bạn chưa nhập tên nhà</p>
+                    </div>
+                  </div>
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="col-sm-6 control-group">
+                  <div style="color: black; font-size: 18px">Địa chỉ nhà:</div>
+                  <input type="text" class="form-control p-4" id="nationality" formControlName="houseAddress"
+                         placeholder="Địa chỉ căn nhà"
+                         required="required" data-validation-required-message="Hãy nhập địa chỉ căn nhà"/>
+                  <div *ngIf="houseAddress?.invalid &&  houseAddress?.touched">
+                    <div *ngIf="houseAddress?.errors?.['required']">
+                      <p class="help-block text-danger">Bạn chưa nhập địa chỉ nhà</p>
+                    </div>
+                  </div>
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="col-sm-6 control-group">
+                  <div style="color: black; font-size: 18px">Phòng ngủ:</div>
+                  <div>
+                    <select id="bedrooms" formControlName="bedrooms" class="form-select" style=" height: 50px;">
+                      <option value="1">1 phòng</option>
+                      <option value="2">2 phòng</option>
+                      <option value="3">3 phòng</option>
+                      <option value="4">4 phòng</option>
+                      <option value="5">5 phòng</option>
+                      <option value="6">6 phòng</option>
+                      <option value="7">7 phòng</option>
+                      <option value="8">8 phòng</option>
+                      <option value="9">9 phòng</option>
+                      <option value="10">10 phòng</option>
+                    </select>
+                  </div>
+                  <p class="help-block text-danger"></p>
+                </div>
+
+                <div class="col-sm-6 control-group">
+                  <div style="color: black; font-size: 18px">Phòng tắm:</div>
+                  <select id="bathrooms" formControlName="bathrooms" class="form-select" style=" height: 50px;">
+                    <option value="1">1 phòng</option>
+                    <option value="2">2 phòng</option>
+                    <option value="3">3 phòng</option>
+                  </select>
+
+                </div>
+              </div>
+              <div class=" control-group">
+                <div style="color: black; font-size: 18px">Giá phòng :</div>
+                <input type="number" class="form-control p-4" id="weight" formControlName="rent"
+                       placeholder="VNĐ/ngày" required="required"
+                       data-validation-required-message="hãy nhập giá nhà / ngày"/>
+                <div *ngIf="rent?.invalid &&  rent?.touched">
+                  <div *ngIf="rent?.errors?.['required']">
+                    <p class="help-block text-danger text-center">Hãy nhập giá phòng</p>
+                  </div>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div style="color: black; font-size: 18px">Mô tả:</div>
+                <textarea class="form-control p-4 " rows="6" id="description" formControlName="description"
+                          placeholder="Mô tả về ngôi nhà"
+                          required="required" data-validation-required-message="Hãy nhập mô tả về ngôi nhà"></textarea>
+                <div *ngIf="description?.invalid && description?.touched">
+                  <div *ngIf="description?.errors?.['required']">
+                    <p class="help-block text-danger text-center">Hãy nhập mô tả về ngôi nhà</p>
+                  </div>
+                </div>
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="control-group">
+                <div class="row ">
+                  <div class="col-12 mt-5 ">
+                    <div id="yourBt" style="color: black">Tải  ảnh của ngôi nhà</div>
+                    <div>
+                      <input type="file"  (change)="uploadMultipleFile({$event : $event})" multiple>
+                      <button *ngIf="arrUrlFormFireBase.length?!selectFile:selectFile" (click)="upLoad()" class="btn btn-info" type="button">Đăng ảnh</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="control-group p-5" *ngIf="arrUrlFormFireBase.length">
+                <div *ngFor="let item of arrUrlFormFireBase" style="display: inline">
+                  <img src="{{item}}" alt="" style="max-width: 20%">
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-info btn-block py-3 px-5"  type="submit" id="sendMessageButton"
+                        [disabled]="!houseForm.valid">Tạo Nhà
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+

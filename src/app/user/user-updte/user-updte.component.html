@@ -1,0 +1,104 @@
+
+<app-nav-bar></app-nav-bar>
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">{{user?.username}}</h1>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+
+            <li class="breadcrumb-item active" aria-current="page">
+              Sửa thông tin
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="agent-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="agent-avatar-box">
+              <img src="{{user?.avatar}}" alt="" class="agent-avatar img-fluid" style="width: 100%; height: 400px">
+            </div>
+            <div class="form-group col-12">
+              <input type="file"
+                     id="file"
+                     #userPhoto
+                     (change)="onFileSelected($event)"
+                     name="image"
+                     autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="col-md-5 section-md-t3">
+            <form [formGroup]="userForm" (submit)="updateUser(id)">
+            <div class="agent-info-box">
+              <div class="agent-content mb-3">
+                <p class="content-d color-text-a">
+                </p>
+                  <label class="form-label">Tên chủ nhà:
+                  <input class="input100" type="text" name="email" formControlName="fullName">
+                  </label>
+                  <br>
+                <label class="form-label"> Địa chỉ:
+                  <input class="input100" type="text" name="address" formControlName="userAddress">
+                </label>
+                  <br>
+                <label class="form-label">Số điện thoại:
+                  <input class="input100" type="text" name="phone" formControlName="phoneNumber">
+                </label>
+                  <br>
+                <label class="form-label">Email:
+                  <input class="input100" type="text" name="email" formControlName="email">
+                </label>
+                </div>
+              </div>
+              <div class="socials-footer">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <a href="#" class="link-one">
+                      <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="link-one">
+                      <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="link-one">
+                      <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="link-one">
+                      <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="link-one">
+                      <i class="fa fa-dribbble" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <button class="btn btn-info" >Cập nhật</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+

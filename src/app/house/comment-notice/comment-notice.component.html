@@ -1,0 +1,25 @@
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-globe"></i>
+    <b class="caret"></b>
+    <span class="notification hidden-sm hidden-xs">{{comment.length}}</span>
+    <p class="hidden-lg hidden-md">
+      5 Notifications
+      <b class="caret"></b>
+    </p>
+  </a>
+
+  <ul class="dropdown-menu" >
+    <li *ngFor="let com of comment ; index as i"><a [routerLink]="['/detail',com.house?.id]"  (click)="isRead(com.id)">Bạn có 1 nhận xét chưa đọc từ ngôi nhà {{com.house?.houseName}} </a></li>
+  </ul>
+</li>
+<!--<table>-->
+<!--  <tr>-->
+<!--    <th>tên nhà</th>-->
+<!--    <th>nhận xét</th>-->
+<!--  </tr>-->
+<!--  <tr *ngFor=" let comments of comment ; index as i" >-->
+<!--    <td> {{comments.house?.houseName}}</td>-->
+<!--    <td> {{comments.comment}}</td>-->
+<!--  </tr>-->
+<!--</table>-->

@@ -1,0 +1,107 @@
+<div class="click-closed"></div>
+
+<!--/ Form Search Star /-->
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+            aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <a class="navbar-brand text-brand" routerLink="/home"><img src="../../../assets/img/ABlogo.png" style="width: 30%"></a>
+    <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
+            data-target="#navbarTogglerDemo01" aria-expanded="false">
+      <span class="fa fa-search" aria-hidden="true"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/house/list',0]">Danh sách phòng</a>
+        </li>
+        <li class="nav-item dropdown" >
+          <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Theo dõi</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/booking',0]">Lịch sử phiếu thuê nhà</a>
+            <a class="dropdown-item" [routerLink]="['/orderPast',0]">Lịch sử thuê nhà</a>
+            <a class="dropdown-item" [routerLink]="['/orderWait',0]">Phiếu thuê chờ xác nhận</a>
+            <a class="dropdown-item" routerLink="/house/houseIncome">Thu nhập</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" >
+          <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Cá nhân</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/user',userID]">Thông tin cá nhân</a>
+            <a class="dropdown-item" routerLink="/house/create">Tạo nhà thuê mới</a>
+            <a class="dropdown-item" routerLink="/change-password">Thay đổi mật khẩu </a>
+            <a class="dropdown-item" (click)="logout()">Đăng Xuất</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" >
+          <h2>
+            <i class="fa fa-bell" aria-hidden="true" style="margin-top: 15px;"></i><sup style="color: red">{{comment.length}}</sup>
+          </h2>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+            <div *ngFor="let com of comment ; index as i">
+              <a class="dropdown-item" [routerLink]="['/detail',com.house?.id]"  (click)="isRead(com.id)" >
+                  Bạn có 1 nhận xét chưa đọc từ ngôi nhà {{com.house?.houseName}} </a>
+          </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" [routerLink]="['/user',userID]">
+            <img src="{{avatar}}" alt="Logo" style="width:40px;" class="rounded-pill">
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <button type="button" class="btn btn-info d-none d-md-block"
+             aria-expanded="false" (click)="OpenModal()">
+      <span class="fa fa-search" aria-hidden="true"></span>
+    </button>
+  </div>
+
+<!--  </div>-->
+</nav>
+<!--<form >-->
+
+
+<!--    <div >-->
+<!--      <div class="form-group">-->
+<!--        <label for="Type">Khu vực</label>-->
+<!--        <select class="form-control form-control-lg form-control-a" id="Type">-->
+<!--          <option>Thủ Dầu Một</option>-->
+<!--          <option>Thuận An</option>-->
+<!--          <option>Tân Uyên</option>-->
+<!--          <option>Bến Cát</option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="">-->
+<!--      <div class="">-->
+<!--        <label for="city">Gần trường TDMU</label>-->
+<!--        <select class="form-control form-control-lg form-control-a" id="city">-->
+<!--          <option>Có</option>-->
+<!--          <option>Không</option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div >-->
+<!--      <div >-->
+<!--        <label >Giá</label>-->
+<!--        <select class="form-control form-control-lg form-control-a" id="rent">-->
+<!--          <option>Dưới 1 triệu</option>-->
+<!--          <option>1 triệu - 2 triệu</option>-->
+<!--          <option>Trên 2 triệu</option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-12">-->
+<!--      <button type="submit" class="btn btn-b">Tìm kiếm</button>-->
+<!--    </div>-->
+
+<!--</form>-->

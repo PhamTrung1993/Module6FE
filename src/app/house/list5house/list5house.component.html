@@ -1,0 +1,74 @@
+
+<section class="section-property section-t8" xmlns="http://www.w3.org/1999/html">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-wrap d-flex justify-content-between">
+          <div class="title-box">
+            <h2 class="title-a">Phòng trọ tốt nhất</h2>
+          </div>
+          <div class="title-link">
+            <a routerLink="/house/list">Xem tất cả
+              <span class="ion-ios-arrow-forward"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="property-grid grid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let house of houses; index as i">
+        <div class="card-box-a card-shadow">
+          <div class="img-box-a">
+            <img src="{{listFirstImage[i]}}" alt="anh dai dien" style="height: 300px ;width: 450px"
+                 class="img-a img-fluid">
+          </div>
+          <div class="card-overlay">
+            <div class="card-overlay-a-content">
+              <div class="card-header-a">
+                <h2 class="card-title-a">
+                  <a href="#">{{house.houseName}}|
+                    {{house.houseAddress}}</a>
+                </h2>
+              </div>
+              <div class="card-body-a">
+                <div class="price-box d-flex">
+                  <span class="price-a">Giá | {{house.rent}} VND </span>
+                </div>
+                <a [routerLink]="['/detail',house.id]" class="link-a">Xem chi tiết
+                  <span class="ion-ios-arrow-forward"></span>
+                </a>
+              </div>
+              <div class="card-footer-a">
+                <ul class="card-info d-flex justify-content-around">
+                  <li>
+                    <h4 class="card-info-title">Diện tích</h4>
+                    <span>160m
+                        <sup>2</sup>
+                      </span>
+                  </li>
+                  <li>
+                    <h4 class="card-info-title"><i class="fa fa-bed" aria-hidden="true"></i></h4>
+                    <span>{{house.bedrooms}}</span>
+                  </li>
+                  <li>
+                    <h4 class="card-info-title"><i class="fa fa-bath" aria-hidden="true"></i></h4>
+                    <span>{{house.bathrooms}}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!--<app-footer></app-footer>-->
+

@@ -1,0 +1,80 @@
+<!--&lt;!&ndash;<form [formGroup]="form" (ngSubmit)="submit()">&ndash;&gt;-->
+<!--&lt;!&ndash;  <select formControlName="houseId" >&ndash;&gt;-->
+<!--&lt;!&ndash;    <option *ngFor="let house of listHouse" value="{{house.id}}">{{house.houseName}}</option>&ndash;&gt;-->
+<!--&lt;!&ndash;  </select>&ndash;&gt;-->
+<!--&lt;!&ndash;  <input type="month" formControlName="month">&ndash;&gt;-->
+<!--&lt;!&ndash;  <input type="submit" value="Submit">&ndash;&gt;-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--&lt;!&ndash;<div *ngIf="check">&ndash;&gt;-->
+<!--&lt;!&ndash;  <img src="{{image}}" alt="image house">&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<h2>{{result}}</h2>&ndash;&gt;-->
+<app-nav-bar></app-nav-bar>
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">{{user.username}}</h1>
+          <span class="color-text-a" style="color: grey;">{{user.userAddress}}</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+
+            <li class="breadcrumb-item active" aria-current="page" style="color: black">
+              Thu nhập
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="agent-single">
+
+  <div class="container" >
+      <div class="col-sm-12">
+        <form [formGroup]="form" (ngSubmit)="submit()" >
+          <table style="width: 100%">
+            <td>
+              <select formControlName="houseId"  style="height: 50px;width: 300px; border-radius: 20px">
+                <option *ngFor="let house of listHouse" value="{{house.id}}" >{{house.houseName}}</option>
+              </select>
+            </td>
+            <td>
+              <input type="month" formControlName="month" class="border border-secondary" style=" height: 50px;width: 300px;border-radius: 20px">
+            </td>
+            <td>
+              <input type="submit" value="Xác nhận" class="btn btn-info" style="height: 50px; width: 100px">
+            </td>
+        </table>
+        </form>
+        <div class="row"*ngIf="check">
+          <div class="col-md-6">
+            <div class="agent-avatar-box">
+              <img src="{{image}}" alt="" class="agent-avatar img-fluid" style="width: 100%; height: 400px">
+            </div>
+          </div>
+          <div class="col-md-5 section-md-t3">
+              <div class="agent-content mb-3">
+                <p class="content-d color-text-a">
+                </p>
+                <div class="info-agents color-a">
+                  <div class="info-agents color-a">
+                    <p style="font-size: 24px">
+                      <strong>Tên nhà: </strong>
+                      {{houseName}}
+                    </p>
+                    <h2>{{result}}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!check"><h2>{{result}}</h2></div>
+      </div>
+  </div>
+</section>
+<app-footer></app-footer>

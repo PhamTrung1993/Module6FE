@@ -1,0 +1,166 @@
+<!--<h1>Thong tin</h1>-->
+<!--<form [formGroup]="houseForm">-->
+<!--  <table>-->
+<!--    <tr>-->
+<!--      <td>Ten:</td>-->
+<!--      <td><input type="text" formControlName="houseName" readonly></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>Dia chi:</td>-->
+<!--      <td><input type="text" formControlName="houseAddress" readonly></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>bedrooms:</td>-->
+<!--      <td><input type="text" formControlName="bedrooms" readonly></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>bathrooms:</td>-->
+<!--      <td><input type="text" formControlName="bathrooms" readonly></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>rent:</td>-->
+<!--      <td><input type="text" formControlName="rent" readonly></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>Description:</td>-->
+<!--      <td><input type="text" formControlName="description" readonly></td>-->
+<!--    </tr>-->
+<!--  </table>-->
+<!--</form><br>-->
+<!--<form [formGroup]="statusForm" (ngSubmit)="updateHouseStatus()">-->
+<!--<label for="status">Cap nhat trang thai:</label>-->
+<!--<select name="status" id="status">-->
+<!--  <option *ngFor="let status of listStatus; index as i" value="{{i + 1}}">{{status.statusName}}</option>-->
+<!--</select>-->
+<!--</form>>-->
+<app-nav-bar></app-nav-bar>
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">{{house?.houseName}}</h1>
+
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+
+            <li class="breadcrumb-item active" aria-current="page">
+              {{house?.houseName}}
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="property-single nav-arrow-b">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+          <!-- Indicators/dots -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+          </div>
+
+          <!-- The slideshow/carousel -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{image1}}"  class="d-block" style="width:100%; height: 400px">
+            </div>
+            <div class="carousel-item active">
+              <img src="{{image2}}"  class="d-block" style="width:100%; height: 400px">
+            </div>
+            <div class="carousel-item active">
+              <img src="{{image3}}"  class="d-block" style="width:100%; height: 400px">
+            </div>
+          </div>
+
+          <!-- Left and right controls/icons -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+        <div class="property-summary">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="title-box-d section-t4">
+                <h3 class="title-d" style="font-size: 24px">Tóm tắt</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="summary-list">
+          <table cellpadding="10">
+            <tr>
+              <td class="infor"><span><strong>Tên nhà</strong></span></td>
+              <td class="infor" colspan="2">{{house?.houseName}}</td>
+            </tr>
+            <tr>
+              <td class="infor"><span><strong>Địa chỉ nhà :</strong></span></td>
+              <td class="infor" colspan="2">{{house?.houseAddress}}</td>
+            </tr>
+            <tr>
+              <td class="infor"><span><strong>phòng ngủ :</strong></span></td>
+              <td class="infor" colspan="2">{{house?.bedrooms}}</td>
+            </tr>
+            <tr>
+              <td class="infor"><span><strong>phòng tắm:</strong></span></td>
+              <td class="infor" colspan="2">{{house?.bathrooms}}</td>
+            </tr>
+            <tr>
+              <td class="infor"><span><strong>Giá nhà:</strong></span></td>
+              <td class="infor" colspan="2">{{house?.rent}}</td>
+            </tr>
+            <tr>
+              <td class="infor"><span><strong>Mô tả:</strong></span></td>
+              <td class="infor" colspan="2">{{house?.description}}</td>
+            </tr>
+            <tr>
+              <td class="infor"><span><strong>Trạng thái:</strong></span></td>
+              <td class="infor" colspan="2">{{house?.status?.statusName}}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-cog"></i></button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title infor" id="exampleModalLabel">Cập nhật trạng thái</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form [formGroup]="statusForm" (ngSubmit)="updateHouseStatus()">
+                          <label for="status">Câp nhật trạng thái:</label>
+                          <select formControlName="id" id="status">
+                            <option *ngFor="let status of listStatus; index as i" value="{{status.id}}">{{status.statusName}}</option>
+                          </select>
+                          </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" (click)="updateHouseStatus()">Xác nhận</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

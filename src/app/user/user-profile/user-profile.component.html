@@ -1,0 +1,145 @@
+
+<app-nav-bar></app-nav-bar>
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">{{userName}}</h1>
+          <br>
+          <a [routerLink]="['/update',userId]" class="btn btn-info">Sửa thông tin cá nhân</a>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="agent-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="agent-avatar-box">
+              <img src="{{avatar}}" alt="" class="agent-avatar img-fluid" style="width: 100%; height: 400px">
+            </div>
+          </div>
+          <div class="col-md-5 section-md-t3">
+            <div class="agent-info-box">
+              <div class="agent-title">
+                <div class="title-box-d" style="font-size: 24px">
+                  <strong>{{fullName}} </strong>
+                </div>
+              </div>
+              <div class="agent-content mb-3">
+                <p class="content-d color-text-a">
+                </p>
+                <div class="info-agents color-a">
+                  <div class="info-agents color-a">
+                    <p style="font-size: 18px">
+                      <strong>Địa chỉ: </strong>
+                      <span class="color-text-a" style="color: grey;">{{userAddress}}</span>
+                    </p>
+                    <p style="font-size: 18px">
+                      <strong>Số điện thoại: </strong>
+                      <span class="color-text-a" style="color: grey;">{{phoneNumber}}</span>
+                    </p>
+                    <p style="font-size: 18px">
+                      <strong>Email: </strong>
+                      <span class="color-text-a" style="color: grey;">{{email}}</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="socials-footer">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-facebook" aria-hidden="true" style="font-size: 24px"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-twitter" aria-hidden="true" style="font-size: 24px"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true" style="font-size: 24px"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true" style="font-size: 24px"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-dribbble" aria-hidden="true" style="font-size: 24px"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 section-t8">
+        <div class="title-box-d">
+          <h3 class="title-d">Nhà của tôi: </h3>
+        </div>
+      </div>
+      <div class="col-md-4" *ngFor="let house of houses; index as i">
+        <div class="card-box-a card-shadow">
+          <div class="img-box-a">
+            <img src="{{listFirstImage[i]}}" alt="anh dai dien" style="height: 300px ;width: 450px"
+                 class="img-a img-fluid">
+          </div>
+          <div class="card-overlay">
+            <div class="card-overlay-a-content">
+              <div class="card-header-a">
+                <h2 class="card-title-a">
+                  <a href="#">{{house.houseName}}|
+                    {{house.houseAddress}}</a>
+                </h2>
+              </div>
+              <div class="card-body-a">
+                <div class="price-box d-flex">
+                  <span class="price-a">Giá | {{house.rent}} VND </span>
+                </div>
+                <a [routerLink]="['/updatestatus',house.id]" class="link-a">Sửa trạng thái
+                  <span class="ion-ios-arrow-forward"></span>
+                </a>
+              </div>
+              <div class="card-footer-a">
+                <ul class="card-info d-flex justify-content-around">
+                  <li>
+                    <h4 class="card-info-title">Diện tích</h4>
+                    <span>160m
+                        <sup>2</sup>
+                      </span>
+                  </li>
+                  <li>
+                    <h4 class="card-info-title"><i class="fa fa-bed" aria-hidden="true"></i></h4>
+                    <span>{{house.bedrooms}}</span>
+                  </li>
+                  <li>
+                    <h4 class="card-info-title"><i class="fa fa-bath" aria-hidden="true"></i></h4>
+                    <span>{{house.bathrooms}}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
